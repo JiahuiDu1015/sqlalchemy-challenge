@@ -35,6 +35,9 @@ Station Analysis
    Close the session.
 
 Part 2: Design the Climate App
+
+** results have been saved in app.python change.
+   Run the Flask application  in a command by using python app.py
 To do so, use Flask to create your routes as follows:
 
 /
@@ -65,3 +68,54 @@ Hints
 Join the station and measurement tables for some of the queries.
 
 Use the Flask jsonify function to convert your API data to a valid JSON response object.
+
+
+Testing the Flask Routes
+Now that the application is running, we can test the different routes. Here’s a brief overview of what each route should return and how to access them:
+
+Home Page
+
+URL: http://127.0.0.1:5000/
+
+Description: This should return a welcome message with a list of available routes.
+
+Precipitation Data
+
+URL: http://127.0.0.1:5000/api/v1.0/precipitation
+
+Description: This route returns a JSON representation of precipitation data, with dates as keys and precipitation values as values.
+
+Station Data
+
+URL: http://127.0.0.1:5000/api/v1.0/stations
+
+Description: This route returns a JSON list of all stations in the dataset.
+
+Temperature Observations
+
+URL: http://127.0.0.1:5000/api/v1.0/tobs
+
+Description: This route returns a JSON list of temperature observations (TOBS) for the previous year for the most-active station.
+
+Temperature Statistics for a Start Date
+
+URL: http://127.0.0.1:5000/api/v1.0/<start>
+
+Example: http://127.0.0.1:5000/api/v1.0/2017-01-01
+
+Description: This route returns a JSON list of the minimum, average, and maximum temperature for all dates greater than or equal to the specified start date.
+
+Temperature Statistics for a Date Range
+
+URL: http://127.0.0.1:5000/api/v1.0/<start>/<end>
+
+Example: http://127.0.0.1:5000/api/v1.0/2017-01-01/2017-12-31
+
+Description: This route returns a JSON list of the minimum, average, and maximum temperature for dates between the specified start and end dates, inclusive.
+
+Testing Steps
+Open a Web Browser: Navigate to each of the URLs mentioned above to see the JSON responses.
+
+Verify Data: Ensure that the returned JSON data matches the expectations based on the data in the database.
+
+Everything is working correctly so I can see appropriate JSON responses for each route. 
